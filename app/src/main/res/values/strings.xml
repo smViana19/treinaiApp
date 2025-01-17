@@ -1,12 +1,11 @@
 <resources>
     <string name="app_name">Treinaí</string>
-    <string name="title_activity_login">LoginActivity</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="find_exercise">Pesquise o exercício</string>
+    <string name="create_exercise">Criar novo exercício</string>
+    <string name="name_exercise">Nome do exercício</string>
+    <string name="name_workouts">Nome do exercício</string>
+    <string name="decrement">Decrementar</string>
+    <string name="sets">Sets</string>
+    <string name="reps">Reps</string>
+    <string name="save_exercise">Salvar exercício</string>
 </resources>
