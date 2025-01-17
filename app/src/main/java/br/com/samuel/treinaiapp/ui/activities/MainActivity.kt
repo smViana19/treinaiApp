@@ -1,5 +1,6 @@
 package br.com.samuel.treinaiapp.ui.activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -13,18 +14,9 @@ import br.com.samuel.treinaiapp.ui.adapters.WorkoutAdapter
 class MainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    enableEdgeToEdge()
     setContentView(R.layout.activity_main)
-    ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-      val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-      v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-      insets
-    }
-    val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-    recyclerView.layoutManager = LinearLayoutManager(this)
-    val items = listOf("Treino 1", "Treino 2", "Treino 3", "Treino 4")
-    val adapter = WorkoutAdapter(items)
-    recyclerView.adapter = adapter
-
+    val intent = Intent(this, WorkoutActivity::class.java)
+    startActivity(intent)
+    finish()
   }
 }
