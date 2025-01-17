@@ -6,17 +6,18 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.samuel.treinaiapp.R
-class WorkoutAdapter(private val workoutData: List<String>) : RecyclerView.Adapter<WorkoutAdapter.ViewHolder>(){
-  class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-      val title: TextView = itemView.findViewById(R.id.textCardTitle)
-      val description: TextView = itemView.findViewById(R.id.textCardDescription)
 
+class WorkoutAdapter(private val workoutData: List<String>) :
+  RecyclerView.Adapter<WorkoutAdapter.ViewHolder>() {
+  class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    val title: TextView = itemView.findViewById(R.id.textWorkoutName)
   }
+
   override fun onCreateViewHolder(
     parent: ViewGroup,
     viewType: Int
   ): ViewHolder {
-    val itemView = LayoutInflater.from(parent.context).inflate(R.layout.card_item, parent, false)
+    val itemView = LayoutInflater.from(parent.context).inflate(R.layout.card_workout, parent, false)
     return ViewHolder(itemView)
   }
 
@@ -26,10 +27,8 @@ class WorkoutAdapter(private val workoutData: List<String>) : RecyclerView.Adapt
   ) {
     val item = workoutData[position]
     holder.title.text = item
-    holder.description.text = "Descrição para $item"
   }
 
   override fun getItemCount() = workoutData.size
-
 
 }
