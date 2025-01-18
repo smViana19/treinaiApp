@@ -37,15 +37,23 @@ android {
   }
 }
 
+configurations.all {
+  resolutionStrategy {
+    force("org.jetbrains:annotations:23.0.0") // Altere para a versão necessária
+    exclude(group = "com.intellij", module = "annotations")
+  }
+}
+
 dependencies {
-
-
   kapt(libs.hilt.android.compiler)
+  kapt(libs.androidx.room.compiler)
+  implementation("androidx.room:room-ktx:2.6.1")
   implementation(libs.hilt.android)
 
   implementation(libs.retrofit)
   implementation(libs.retrofit.gson.convertor)
 
+  implementation(libs.androidx.room.compiler)
   implementation(libs.androidx.room.runtime)
 
   implementation(libs.androidx.core.ktx)
