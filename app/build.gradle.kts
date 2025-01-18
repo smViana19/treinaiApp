@@ -1,6 +1,8 @@
 plugins {
   alias(libs.plugins.android.application)
   alias(libs.plugins.kotlin.android)
+  id ("kotlin-kapt")
+  id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -36,6 +38,15 @@ android {
 }
 
 dependencies {
+
+
+  kapt(libs.hilt.android.compiler)
+  implementation(libs.hilt.android)
+
+  implementation(libs.retrofit)
+  implementation(libs.retrofit.gson.convertor)
+
+  implementation(libs.androidx.room.runtime)
 
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.appcompat)
