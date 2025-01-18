@@ -9,11 +9,13 @@ import androidx.appcompat.widget.AppCompatImageButton
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import br.com.samuel.treinaiapp.R
+import br.com.samuel.treinaiapp.data.remote.model.ApiExerciseResponse
+import br.com.samuel.treinaiapp.data.remote.model.ApiResultExerciseResponse
 import br.com.samuel.treinaiapp.databinding.CardItemBinding
 
 
 class ExerciseAdapter(
-  private val exerciseData: List<String>
+  private var exerciseData: List<ApiResultExerciseResponse>
 ) : RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
 
   private val favoriteStates = mutableMapOf<Int, Boolean>()
@@ -34,7 +36,7 @@ class ExerciseAdapter(
   ) {
     val item = exerciseData[position]
     val isFavorite = favoriteStates[position] ?: false
-    holder.binding.textExerciseName.text = item
+    holder.binding.textExerciseName.text = item.name
 
     updateFavoriteIcon(holder.binding.imageButtonFavoriteExercise, isFavorite)
 
@@ -46,6 +48,12 @@ class ExerciseAdapter(
   }
 
   override fun getItemCount() = exerciseData.size
+
+  fun updateExercises(newExercises: List<ApiResultExerciseResponse>) {
+    exerciseData = newExercises
+    notifyDataSetChanged()
+  }
+
   private fun updateFavoriteIcon(button: ImageButton, isFavorite: Boolean) {
 
     if (isFavorite) {
@@ -53,7 +61,7 @@ class ExerciseAdapter(
       button.imageTintList = ContextCompat.getColorStateList(button.context, R.color.orange)
     } else {
       button.setImageResource(R.drawable.ic_star_off_24)
-      button.imageTintList = ContextCompat.getColorStateList(button.context, R.color.gray)
+      button.imageTintList = ContextCompat.getColorStateList(button.context, R.color.gray_1)
     }
   }
 }
