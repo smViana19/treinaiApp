@@ -21,6 +21,7 @@
         app:endIconMode="custom"
         app:hintTextColor="@color/orange">
 
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextSearchExercise"
             android:layout_width="match_parent"
