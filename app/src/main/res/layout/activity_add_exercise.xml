@@ -16,10 +16,10 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
         app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/orange"
+        app:boxStrokeColor="@color/primary_gradient_start"
         app:endIconDrawable="@drawable/ic_search_24"
         app:endIconMode="custom"
-        app:hintTextColor="@color/orange">
+        app:hintTextColor="@color/primary_gradient_start">
 
 
         <com.google.android.material.textfield.TextInputEditText
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="8dp"
-        android:backgroundTint="@color/orange"
+        android:backgroundTint="@color/primary_gradient_start"
         android:text="@string/create_exercise" />
 
 
