@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Treinaí</string>
     <string name="find_exercise">Pesquise o exercício</string>
+    <string name="exercises">Exercícios</string>
+
     <string name="create_exercise">Criar novo exercício</string>
     <string name="name_exercise">Nome do exercício</string>
     <string name="name_workouts">Nome do exercício</string>

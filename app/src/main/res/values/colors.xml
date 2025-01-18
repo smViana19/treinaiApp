@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <color name="primary_gradient_start">#92A3FD</color>
+    <color name="primary_gradient_end">#9DCEFF</color>
+
+    <color name="secondary_gradient_start">#C58BF2</color>
+    <color name="secondary_gradient_end">#EEA4CE</color>
+
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="orange">#FF5722</color>
     <color name="orange_700">#DC3200</color>
     <color name="background_gray">#D1D1D1</color>
-    <color name="gray">#4E4E4E</color>
-    <color name="statusBar">#FF5722</color>
+    <color name="gray_1">#7B6F72</color>
+    <color name="gray_2">#ADA4A5</color>
+    <color name="gray_3">#DDDADA</color>
+    <color name="border_color">#F7F8F8</color>
 </resources>
