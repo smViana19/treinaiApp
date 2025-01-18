@@ -4,22 +4,25 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import br.com.samuel.treinaiapp.data.local.database.model.ExerciseModel
 import br.com.samuel.treinaiapp.data.remote.api.ApiExerciseService
 import br.com.samuel.treinaiapp.data.remote.model.ApiResultExerciseResponse
+import br.com.samuel.treinaiapp.data.repository.ExerciseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class AddExerciseViewModel @Inject constructor(
-  private val apiExerciseService: ApiExerciseService
+  private val apiExerciseService: ApiExerciseService,
+  private val exerciseRepository: ExerciseRepository
 ) : ViewModel() {
 
   private var currentPage = 1
   private val itemsPerPage = 50
 
-  private val _exercises = MutableLiveData<List<ApiResultExerciseResponse>>()
-  val exercises: LiveData<List<ApiResultExerciseResponse>> = _exercises
+  private val _exercises = MutableLiveData<List<ExerciseModel>>()
+  val exercises: LiveData<List<ExerciseModel>> = _exercises
 
 
 
@@ -27,23 +30,35 @@ class AddExerciseViewModel @Inject constructor(
   val filteredExercises: LiveData<List<ApiResultExerciseResponse>> = _filteredExercises
 
   init {
-    getExercises()
+    getAndBulkInsertExercises()
   }
 
-  fun getExercises() {
+  fun getAndBulkInsertExercises() {
     viewModelScope.launch {
       try {
-        val response = apiExerciseService.getExercises(limit = itemsPerPage, offset = (currentPage - 1) * itemsPerPage)
+        val response = exerciseRepository.getExercisesFromApi(limit = itemsPerPage, offset = (currentPage - 1) * itemsPerPage)
         val currentList = _exercises.value.orEmpty()
-        _exercises.postValue(currentList + response.results)
-        println("exercises: $_exercises")
+        _exercises.postValue(currentList + response)
         currentPage++
       } catch (e: Exception) {
         e.printStackTrace()
-        _exercises.postValue(emptyList())
       }
     }
   }
+//  fun getExercises() {
+//    viewModelScope.launch {
+//      try {
+//        val response = apiExerciseService.getExercises(limit = itemsPerPage, offset = (currentPage - 1) * itemsPerPage)
+//        val currentList = _exercises.value.orEmpty()
+//        _exercises.postValue(currentList + response.results)
+//        println("exercises: $_exercises")
+//        currentPage++
+//      } catch (e: Exception) {
+//        e.printStackTrace()
+//        _exercises.postValue(emptyList())
+//      }
+//    }
+//  }
 
   fun filterExercises(query: String) {
     viewModelScope.launch {

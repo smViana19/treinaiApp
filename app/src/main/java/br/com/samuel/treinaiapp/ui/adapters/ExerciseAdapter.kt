@@ -1,21 +1,14 @@
 package br.com.samuel.treinaiapp.ui.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.TextView
-import androidx.appcompat.widget.AppCompatImageButton
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import br.com.samuel.treinaiapp.R
-import br.com.samuel.treinaiapp.data.remote.model.ApiExerciseResponse
-import br.com.samuel.treinaiapp.data.remote.model.ApiResultExerciseResponse
+import br.com.samuel.treinaiapp.data.local.database.model.ExerciseModel
 import br.com.samuel.treinaiapp.databinding.CardItemBinding
 
 
 class ExerciseAdapter(
-  private var exerciseData: List<ApiResultExerciseResponse>
+  private var exerciseData: List<ExerciseModel>
 ) : RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
 
   private val favoriteStates = mutableMapOf<Int, Boolean>()
@@ -38,30 +31,30 @@ class ExerciseAdapter(
     val isFavorite = favoriteStates[position] ?: false
     holder.binding.textExerciseName.text = item.name
 
-    updateFavoriteIcon(holder.binding.imageButtonFavoriteExercise, isFavorite)
+//    updateFavoriteIcon(holder.binding.imageButtonFavoriteExercise, isFavorite)
 
     holder.binding.imageButtonFavoriteExercise.setOnClickListener {
       val newFavoriteState = !(favoriteStates[position] ?: false)
       favoriteStates[position] = newFavoriteState
-      updateFavoriteIcon(holder.binding.imageButtonFavoriteExercise, newFavoriteState)
+//      updateFavoriteIcon(holder.binding.imageButtonFavoriteExercise, newFavoriteState)
     }
   }
 
   override fun getItemCount() = exerciseData.size
 
-  fun updateExercises(newExercises: List<ApiResultExerciseResponse>) {
+  fun updateExercises(newExercises: List<ExerciseModel>) {
     exerciseData = newExercises
     notifyDataSetChanged()
   }
 
-  private fun updateFavoriteIcon(button: ImageButton, isFavorite: Boolean) {
-
-    if (isFavorite) {
-      button.setImageResource(R.drawable.ic_star_on_24)
-      button.imageTintList = ContextCompat.getColorStateList(button.context, R.color.orange)
-    } else {
-      button.setImageResource(R.drawable.ic_star_off_24)
-      button.imageTintList = ContextCompat.getColorStateList(button.context, R.color.gray_1)
-    }
-  }
+//  private fun updateFavoriteIcon(button: ImageButton, isFavorite: Boolean) {
+//
+//    if (isFavorite) {
+//      button.setImageResource(R.drawable.ic_star_on_24)
+//      button.imageTintList = ContextCompat.getColorStateList(button.context, R.color.orange)
+//    } else {
+//      button.setImageResource(R.drawable.ic_star_off_24)
+//      button.imageTintList = ContextCompat.getColorStateList(button.context, R.color.gray_1)
+//    }
+//  }
 }

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.EditText
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
@@ -36,19 +35,18 @@ class AddExerciseActivity : AppCompatActivity() {
     binding.recyclerViewExercises.addOnScrollListener(object: RecyclerView.OnScrollListener() {
       override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
         if(!recyclerView.canScrollVertically(1)) {
-          viewModel.getExercises()
+          viewModel.getAndBulkInsertExercises()
         }
       }
     })
-
 
     binding.buttonCreateExercise.setOnClickListener {
       showBottomSheet()
     }
 
-    viewModel.filteredExercises.observe(this) { exercises ->
-      adapter.updateExercises(exercises)
-    }
+//    viewModel.filteredExercises.observe(this) { exercises ->
+//      adapter.updateExercises(exercises)
+//    }
     binding.editTextSearchExercise.addTextChangedListener { text ->
       viewModel.filterExercises(text.toString())
 
@@ -58,9 +56,7 @@ class AddExerciseActivity : AppCompatActivity() {
         adapter.updateExercises(it)
       }
     }
-    viewModel.getExercises()
-
-
+    viewModel.getAndBulkInsertExercises()
   }
 
   private fun showBottomSheet() {
@@ -77,7 +73,7 @@ class AddExerciseActivity : AppCompatActivity() {
       bottomSheetBinding.decrementSets,
       bottomSheetBinding.editTextSets
     )
-    saveExercise(bottomSheetBinding, bottomSheetDialog)
+//    saveExercise(bottomSheetBinding, bottomSheetDialog)
     bottomSheetDialog.show()
   }
 
@@ -99,26 +95,26 @@ class AddExerciseActivity : AppCompatActivity() {
     }
   }
 
-  private fun saveExercise(
-    bottomSheetBinding: BottomSheetAddExercisesBinding,
-    bottomSheetDialog: BottomSheetDialog
-  ) {
-    bottomSheetBinding.buttonSaveExercise.setOnClickListener {
-      val exerciseName = bottomSheetBinding.editTextCreateExercise.text.toString()
-      val reps = bottomSheetBinding.editTextRepetition.text.toString().toInt()
-      val sets = bottomSheetBinding.editTextSets.text.toString().toInt()
-
-      if (exerciseName.isNotEmpty() && reps > 0 && sets > 0) {
-        Toast.makeText(
-          this,
-          "Exercício $exerciseName ($sets x $reps) adicionado!",
-          Toast.LENGTH_SHORT
-        ).show()
-        bottomSheetDialog.dismiss()
-      } else {
-        Toast.makeText(this, "Preencha todos os campos corretamente!", Toast.LENGTH_SHORT).show()
-      }
-    }
-  }
+//  private fun saveExercise(
+//    bottomSheetBinding: BottomSheetAddExercisesBinding,
+//    bottomSheetDialog: BottomSheetDialog
+//  ) {
+//    bottomSheetBinding.buttonSaveExercise.setOnClickListener {
+//      val exerciseName = bottomSheetBinding.editTextCreateExercise.text.toString()
+//      val reps = bottomSheetBinding.editTextRepetition.text.toString().toInt()
+//      val sets = bottomSheetBinding.editTextSets.text.toString().toInt()
+//
+//      if (exerciseName.isNotEmpty() && reps > 0 && sets > 0) {
+//        Toast.makeText(
+//          this,
+//          "Exercício $exerciseName ($sets x $reps) adicionado!",
+//          Toast.LENGTH_SHORT
+//        ).show()
+//        bottomSheetDialog.dismiss()
+//      } else {
+//        Toast.makeText(this, "Preencha todos os campos corretamente!", Toast.LENGTH_SHORT).show()
+//      }
+//    }
+//  }
 
 }
