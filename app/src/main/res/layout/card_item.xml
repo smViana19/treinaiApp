@@ -65,7 +65,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp"
                 android:text="3x Reps"
-                android:textColor="@color/gray"
+                android:textColor="@color/gray_2"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toBottomOf="@+id/textExerciseName" />
@@ -91,7 +91,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp"
                 android:text="3x Sets"
-                android:textColor="@color/gray"
+                android:textColor="@color/gray_2"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/imageView2"
                 app:layout_constraintTop_toBottomOf="@+id/textExerciseName" />
