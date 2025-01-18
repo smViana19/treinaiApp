@@ -5,19 +5,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import br.com.samuel.treinaiapp.R
 import br.com.samuel.treinaiapp.databinding.ActivityAddExerciseBinding
 import br.com.samuel.treinaiapp.databinding.BottomSheetAddExercisesBinding
-import br.com.samuel.treinaiapp.databinding.CardItemBinding
 import br.com.samuel.treinaiapp.ui.adapters.ExerciseAdapter
+import br.com.samuel.treinaiapp.ui.viewmodel.AddExerciseViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AddExerciseActivity : AppCompatActivity() {
   private lateinit var binding: ActivityAddExerciseBinding
-  private lateinit var cardBinding: CardItemBinding
-  private var isFavorite = false
+  private val viewModel: AddExerciseViewModel by viewModels()
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -26,33 +30,38 @@ class AddExerciseActivity : AppCompatActivity() {
     setContentView(binding.root)
     binding.recyclerViewExercises.layoutManager = LinearLayoutManager(this)
 
-    val items = listOf(
-      "Supino inclinado com halteres",
-      "Supino reto com barra",
-      "Remada curvada com barra",
-      "Agachamento livre",
-      "Desenvolvimento com halteres",
-      "Rosca direta com barra",
-      "Tríceps testa com barra",
-      "Elevação lateral com halteres",
-      "Cadeira extensora",
-      "Leg press 45°",
-      "Puxada frontal na polia",
-      "Stiff com barra",
-      "Flexão de braços",
-      "Abdominal supra no solo",
-      "Prancha abdominal",
-      "Crucifixo inclinado com halteres"
-    )
-    val adapter = ExerciseAdapter(items)
+    val adapter = ExerciseAdapter(emptyList())
     binding.recyclerViewExercises.adapter = adapter
+
+    binding.recyclerViewExercises.addOnScrollListener(object: RecyclerView.OnScrollListener() {
+      override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+        if(!recyclerView.canScrollVertically(1)) {
+          viewModel.getExercises()
+        }
+      }
+    })
+
 
     binding.buttonCreateExercise.setOnClickListener {
       showBottomSheet()
     }
+
+    viewModel.filteredExercises.observe(this) { exercises ->
+      adapter.updateExercises(exercises)
+    }
+    binding.editTextSearchExercise.addTextChangedListener { text ->
+      viewModel.filterExercises(text.toString())
+
+    }
+    viewModel.exercises.observe(this) { exercises ->
+      exercises?.let {
+        adapter.updateExercises(it)
+      }
+    }
+    viewModel.getExercises()
+
+
   }
-
-
 
   private fun showBottomSheet() {
     val bottomSheetDialog = BottomSheetDialog(this)
