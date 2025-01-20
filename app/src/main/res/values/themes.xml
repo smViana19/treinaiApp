@@ -2,11 +2,14 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.TreinaiApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+         <item name="colorPrimary">@color/primary_gradient_start</item>
         <item name="android:fontFamily">@font/poppins</item>
         <item name="android:statusBarColor">@color/gray_2</item>
         <item name="android:windowLightStatusBar">false</item>
     </style>
 
     <style name="Theme.TreinaiApp" parent="Base.Theme.TreinaiApp" />
+    <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="color">@color/secondary_gradient_start</item>
+    </style>
 </resources>
