@@ -22,7 +22,8 @@
         tools:layout="@layout/fragment_workout_list">
         <action
             android:id="@+id/action_workoutListFragment_to_workoutDetailsFragment"
-            app:destination="@+id/workoutDetailsFragment" />
+            app:destination="@+id/workoutDetailsFragment"
+            app:popUpTo="@id/homeFragment"/>
     </fragment>
     <fragment
         android:id="@+id/workoutDetailsFragment"
