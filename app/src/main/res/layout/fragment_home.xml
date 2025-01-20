@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.HomeFragment">
+
+    <TextView
+        android:id="@+id/textWelcomeBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:text="Bem vindo de volta,"
+        android:textColor="@color/gray_2"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Samuel"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textWelcomeBack"
+        app:layout_constraintTop_toBottomOf="@+id/textWelcomeBack" />
+
+    <ImageButton
+        android:id="@+id/imageButtonNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="30dp"
+        android:padding="16dp"
+        android:background="@null"
+        android:contentDescription="description_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_notification_alert_24" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewWeightStatus"
+        android:layout_width="match_parent"
+        android:layout_height="146dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textUsername">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_primary_gradient">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="false"
+                android:contentDescription="background dots"
+                android:scaleType="centerCrop"
+                android:src="@drawable/banner_dots" />
+
+            <TextView
+                android:id="@+id/textImc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="26dp"
+                android:text="Meu progresso e status"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold|normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textWeightStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Confira seu progresso e status"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="@+id/textImc"
+                app:layout_constraintTop_toBottomOf="@+id/textImc" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/secondary_gradient_start"
+                android:paddingHorizontal="21dp"
+                android:paddingVertical="10dp"
+                android:text="Veja mais"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/textWeightStatus"
+                app:layout_constraintTop_toBottomOf="@+id/textWeightStatus" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewWorkoutStatus"
+        android:layout_width="match_parent"
+        android:layout_height="146dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewWeightStatus">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_secondary_gradient">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="false"
+                android:contentDescription="background dots"
+                android:scaleType="centerCrop"
+                android:src="@drawable/banner_dots" />
+
+            <TextView
+                android:id="@+id/textWorkout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="26dp"
+                android:text="Gerenciar meus treinos"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold|normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/textWorkoutStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Confira seu progresso e status"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="@+id/textWorkout"
+                app:layout_constraintTop_toBottomOf="@+id/textWorkout" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/primary_gradient_start"
+                android:paddingHorizontal="21dp"
+                android:paddingVertical="10dp"
+                android:text="Gerenciar treinos"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/textWorkoutStatus"
+                app:layout_constraintTop_toBottomOf="@+id/textWorkoutStatus" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

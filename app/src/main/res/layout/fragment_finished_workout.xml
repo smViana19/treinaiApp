@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.FinishedWorkoutFragment">
+
+    <ImageView
+        android:id="@+id/imageLadyCongrats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="60dp"
+        android:src="@drawable/bg_lady_congrats"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textCongrats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="50dp"
+        android:text="Parabéns você concluiu seu treino"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageLadyCongrats" />
+
+    <TextView
+        android:id="@+id/textDescriptionCongrats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Volte à tela principal para começar um outro treino"
+        android:textAlignment="center"
+        android:textColor="@color/gray_2"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/textCongrats"
+        app:layout_constraintStart_toStartOf="@+id/textCongrats"
+        app:layout_constraintTop_toBottomOf="@+id/textCongrats" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@color/primary_gradient_start"
+        android:text="Voltar à tela principal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
