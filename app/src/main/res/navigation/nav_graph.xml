@@ -1,8 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    >
+    app:startDestination="@id/homeFragment">
 
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="br.com.samuel.treinaiapp.ui.fragments.HomeFragment"
+        android:label="home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_workoutListFragment"
+            app:destination="@+id/workoutListFragment" />
+        <!-- Adicionar animações -->
+    </fragment>
+    <fragment
+        android:id="@+id/workoutListFragment"
+        android:name="br.com.samuel.treinaiapp.ui.fragments.WorkoutListFragment"
+        android:label="workoutList"
+        tools:layout="@layout/fragment_workout_list">
+        <action
+            android:id="@+id/action_workoutListFragment_to_workoutDetailsFragment"
+            app:destination="@+id/workoutDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/workoutDetailsFragment"
+        android:name="br.com.samuel.treinaiapp.ui.fragments.WorkoutDetailsFragment"
+        android:label="workoutDetails"
+        tools:layout="@layout/fragment_workout_details" />
 
 </navigation>
