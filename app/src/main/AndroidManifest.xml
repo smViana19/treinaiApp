@@ -16,21 +16,6 @@
         android:forceDarkAllowed="false"
         tools:targetApi="31">
         <activity
-            android:name=".ui.activities.WorkoutDetailsActivity"
-            android:exported="true">
-
-        </activity>
-        <activity
-            android:name=".ui.activities.AddExerciseActivity"
-            android:exported="true">
-        </activity>
-        <activity
-            android:name=".ui.activities.WorkoutActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ui.activities.AddWorkoutActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.activities.MainActivity"
             android:exported="true">
             <intent-filter>
