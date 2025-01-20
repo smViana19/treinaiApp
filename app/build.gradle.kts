@@ -39,7 +39,7 @@ android {
 
 configurations.all {
   resolutionStrategy {
-    force("org.jetbrains:annotations:23.0.0") // Altere para a versão necessária
+    force("org.jetbrains:annotations:23.0.0")
     exclude(group = "com.intellij", module = "annotations")
   }
 }
@@ -47,7 +47,11 @@ configurations.all {
 dependencies {
   kapt(libs.hilt.android.compiler)
   kapt(libs.androidx.room.compiler)
-  implementation("androidx.room:room-ktx:2.6.1")
+
+  implementation (libs.androidx.navigation.fragment.ktx)
+  implementation (libs.androidx.navigation.ui.ktx)
+
+  implementation(libs.androidx.room.ktx)
   implementation(libs.hilt.android)
 
   implementation(libs.retrofit)
