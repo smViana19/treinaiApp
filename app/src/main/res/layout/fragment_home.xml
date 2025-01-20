@@ -14,7 +14,7 @@
         android:layout_marginTop="40dp"
         android:text="Bem vindo de volta,"
         android:textColor="@color/gray_2"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,10 +22,10 @@
         android:id="@+id/textUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="2dp"
         android:text="Samuel"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textWelcomeBack"
         app:layout_constraintTop_toBottomOf="@+id/textWelcomeBack" />
@@ -46,7 +46,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewWeightStatus"
         android:layout_width="match_parent"
-        android:layout_height="146dp"
+        android:layout_height="154dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
@@ -76,7 +76,7 @@
                 android:layout_marginTop="26dp"
                 android:text="Meu progresso e status"
                 android:textColor="@color/white"
-                android:textSize="14sp"
+                android:textSize="20sp"
                 android:textStyle="bold|normal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -87,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:text="Confira seu progresso e status"
                 android:textColor="@color/white"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:textStyle="italic"
                 app:layout_constraintStart_toStartOf="@+id/textImc"
                 app:layout_constraintTop_toBottomOf="@+id/textImc" />
@@ -109,7 +109,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewWorkoutStatus"
         android:layout_width="match_parent"
-        android:layout_height="146dp"
+        android:layout_height="154dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
@@ -139,7 +139,7 @@
                 android:layout_marginTop="26dp"
                 android:text="Gerenciar meus treinos"
                 android:textColor="@color/white"
-                android:textSize="14sp"
+                android:textSize="20sp"
                 android:textStyle="bold|normal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -149,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:text="Confira seu progresso e status"
                 android:textColor="@color/white"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:textStyle="italic"
                 app:layout_constraintStart_toStartOf="@+id/textWorkout"
                 app:layout_constraintTop_toBottomOf="@+id/textWorkout" />
