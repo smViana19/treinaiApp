@@ -22,26 +22,26 @@ class WorkoutDetailsActivity : AppCompatActivity() {
         }
         val recyclerView: RecyclerView = findViewById(R.id.recylcerViewExerciseList)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        val items = listOf(
-            "Supino inclinado com halteres",
-            "Supino reto com barra",
-            "Remada curvada com barra",
-            "Agachamento livre",
-            "Desenvolvimento com halteres",
-            "Rosca direta com barra",
-            "Tríceps testa com barra",
-            "Elevação lateral com halteres",
-            "Cadeira extensora",
-            "Leg press 45°",
-            "Puxada frontal na polia",
-            "Stiff com barra",
-            "Flexão de braços",
-            "Abdominal supra no solo",
-            "Prancha abdominal",
-            "Crucifixo inclinado com halteres"
-        )
-        val adapter = WorkoutAdapter(items)
-        recyclerView.adapter = adapter
+//        val items = listOf(
+//            "Supino inclinado com halteres",
+//            "Supino reto com barra",
+//            "Remada curvada com barra",
+//            "Agachamento livre",
+//            "Desenvolvimento com halteres",
+//            "Rosca direta com barra",
+//            "Tríceps testa com barra",
+//            "Elevação lateral com halteres",
+//            "Cadeira extensora",
+//            "Leg press 45°",
+//            "Puxada frontal na polia",
+//            "Stiff com barra",
+//            "Flexão de braços",
+//            "Abdominal supra no solo",
+//            "Prancha abdominal",
+//            "Crucifixo inclinado com halteres"
+//        )
+//        val adapter = WorkoutAdapter(items)
+//        recyclerView.adapter = adapter
     }
 
 }

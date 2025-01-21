@@ -6,8 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.samuel.treinaiapp.R
+import br.com.samuel.treinaiapp.data.local.database.model.WorkoutModel
 
-class WorkoutAdapter(private val workoutData: List<String>) :
+class WorkoutAdapter(private var workoutData: List<WorkoutModel>) :
   RecyclerView.Adapter<WorkoutAdapter.ViewHolder>() {
   class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val title: TextView = itemView.findViewById(R.id.textWorkoutName)
@@ -26,9 +27,17 @@ class WorkoutAdapter(private val workoutData: List<String>) :
     position: Int
   ) {
     val item = workoutData[position]
-    holder.title.text = item
+    holder.title.text = item.name
   }
 
   override fun getItemCount() = workoutData.size
 
+  fun updateItems(workoutChanged: List<WorkoutModel>) {
+    workoutData = workoutChanged
+    notifyDataSetChanged()
+  }
+  fun addItem(newWorkout: WorkoutModel) {
+    workoutData = workoutData + newWorkout // Adiciona o item na lista
+    notifyItemInserted(workoutData.size - 1) // Notifica que um novo item foi inserido
+  }
 }
