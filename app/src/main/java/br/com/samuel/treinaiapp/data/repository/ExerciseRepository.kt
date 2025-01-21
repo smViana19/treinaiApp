@@ -1,6 +1,5 @@
 package br.com.samuel.treinaiapp.data.repository
 
-import androidx.lifecycle.LiveData
 import br.com.samuel.treinaiapp.data.local.converter.Converters
 import br.com.samuel.treinaiapp.data.local.database.dao.ExerciseDao
 import br.com.samuel.treinaiapp.data.local.database.model.ExerciseModel
