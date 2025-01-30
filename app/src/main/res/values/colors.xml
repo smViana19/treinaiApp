@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="primary_gradient_start">#92A3FD</color>
-    <color name="primary_gradient_end">#9DCEFF</color>
+    <color name="primary_gradient_start">#FF6D00</color>
+    <color name="primary_gradient_end">#FFAB00</color>
 
-    <color name="secondary_gradient_start">#C58BF2</color>
-    <color name="secondary_gradient_end">#EEA4CE</color>
+    <color name="secondary_gradient_start">#FFAB40</color>
+    <color name="secondary_gradient_end">#D32F2F</color>
 
 
     <color name="black">#FF000000</color>

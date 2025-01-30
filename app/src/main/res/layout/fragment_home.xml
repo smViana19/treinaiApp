@@ -58,15 +58,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/background_primary_gradient">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_centerInParent="false"
-                android:contentDescription="background dots"
-                android:scaleType="centerCrop"
-                android:src="@drawable/banner_dots" />
+            android:background="@color/primary_gradient_end">
 
             <TextView
                 android:id="@+id/textImc"
@@ -76,7 +68,7 @@
                 android:layout_marginTop="26dp"
                 android:text="Meu progresso e status"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:textStyle="bold|normal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -87,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:text="Confira seu progresso e status"
                 android:textColor="@color/white"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textStyle="italic"
                 app:layout_constraintStart_toStartOf="@+id/textImc"
                 app:layout_constraintTop_toBottomOf="@+id/textImc" />
@@ -96,7 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:backgroundTint="@color/secondary_gradient_start"
+                android:backgroundTint="@color/primary_gradient_start"
                 android:paddingHorizontal="21dp"
                 android:paddingVertical="10dp"
                 android:text="Veja mais"
@@ -121,15 +113,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/background_secondary_gradient">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_centerInParent="false"
-                android:contentDescription="background dots"
-                android:scaleType="centerCrop"
-                android:src="@drawable/banner_dots" />
+            android:background="@color/secondary_gradient_start">
 
             <TextView
                 android:id="@+id/textWorkout"
@@ -139,7 +123,7 @@
                 android:layout_marginTop="26dp"
                 android:text="Gerenciar meus treinos"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:textStyle="bold|normal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -149,7 +133,7 @@
                 android:layout_height="wrap_content"
                 android:text="Confira seu progresso e status"
                 android:textColor="@color/white"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textStyle="italic"
                 app:layout_constraintStart_toStartOf="@+id/textWorkout"
                 app:layout_constraintTop_toBottomOf="@+id/textWorkout" />
@@ -161,7 +145,7 @@
                 android:layout_marginTop="15dp"
                 android:backgroundTint="@color/primary_gradient_start"
                 android:paddingHorizontal="21dp"
-                android:paddingVertical="10dp"
+                android:paddingBottom="10dp"
                 android:text="Gerenciar treinos"
                 android:textSize="12sp"
                 android:textStyle="bold"
