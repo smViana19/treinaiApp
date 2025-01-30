@@ -12,5 +12,5 @@ data class WorkoutModel(
   @ColumnInfo(name = "name")
   val name: String,
   @ColumnInfo(name = "description")
-  val description: String? = "NULL",
+  val description: String? = null,
 )

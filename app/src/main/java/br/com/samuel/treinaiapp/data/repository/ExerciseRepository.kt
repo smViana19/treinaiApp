@@ -2,6 +2,7 @@ package br.com.samuel.treinaiapp.data.repository
 
 import br.com.samuel.treinaiapp.data.local.converter.Converters
 import br.com.samuel.treinaiapp.data.local.database.dao.ExerciseDao
+import br.com.samuel.treinaiapp.data.local.database.dao.ExerciseWithLogs
 import br.com.samuel.treinaiapp.data.local.database.model.ExerciseModel
 import br.com.samuel.treinaiapp.data.remote.api.ApiExerciseService
 import javax.inject.Inject
@@ -20,7 +21,20 @@ class ExerciseRepository @Inject constructor(
     return exercises
   }
 
-  suspend fun getExercisesFromDatabase() : List<ExerciseModel> {
+  suspend fun getExercisesFromDatabase(): List<ExerciseModel> {
     return exerciseDao.getAllExercises()
   }
+
+  suspend fun insertExercise(exercise: ExerciseModel): Long {
+    return exerciseDao.insertExercise(exercise)
+  }
+
+  suspend fun getAllExercisesAndLogs(workoutId: Int): List<ExerciseWithLogs> {
+    return exerciseDao.getAllExercisesAndLogs(workoutId)
+  }
+
+  suspend fun getExerciseAndLogsById(exerciseId: Int): List<ExerciseWithLogs> {
+    return exerciseDao.getExerciseAndLogsById(exerciseId)
+  }
+
 }

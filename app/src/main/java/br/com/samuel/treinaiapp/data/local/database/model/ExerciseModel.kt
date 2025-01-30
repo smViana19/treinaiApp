@@ -2,16 +2,26 @@ package br.com.samuel.treinaiapp.data.local.database.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "exercises")
-data class ExerciseModel (
+@Entity(
+  tableName = "exercises",
+  foreignKeys = [
+    ForeignKey(
+      entity = WorkoutModel::class,
+      parentColumns = ["id"],
+      childColumns = ["workout_id"],
+      onDelete = ForeignKey.CASCADE,
+    )
+  ]
+)
+data class ExerciseModel(
   @PrimaryKey(autoGenerate = true)
   @ColumnInfo(name = "id")
-  var id: Int? = null,
+  var id: Int = 0,
   @ColumnInfo(name = "name")
   val name: String? = null,
-//  val description: String? = null,
-//  val category: Int? = null
-
+  @ColumnInfo(name = "workout_id")
+  val workoutId: Int = 0,
 )

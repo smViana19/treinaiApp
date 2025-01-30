@@ -13,10 +13,6 @@ import br.com.samuel.treinaiapp.databinding.FragmentWorkoutListBinding
 import br.com.samuel.treinaiapp.ui.adapters.WorkoutAdapter
 import br.com.samuel.treinaiapp.ui.viewmodel.WorkoutViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 
