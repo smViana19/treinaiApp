@@ -29,13 +29,22 @@
     <fragment
         android:id="@+id/workoutDialogFragment"
         android:name="br.com.samuel.treinaiapp.ui.fragments.WorkoutDialogFragment"
-        tools:layout="@layout/fragment_workout_dialog">
-
-    </fragment>
+        tools:layout="@layout/fragment_workout_dialog" />
     <fragment
         android:id="@+id/workoutDetailsFragment"
         android:name="br.com.samuel.treinaiapp.ui.fragments.WorkoutDetailsFragment"
         android:label="workoutDetails"
-        tools:layout="@layout/fragment_workout_details" />
+        tools:layout="@layout/fragment_workout_details">
+        <action
+            android:id="@+id/action_workoutDetailsFragment_to_addExerciseFragment"
+            app:destination="@+id/addExerciseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addExerciseFragment"
+        android:name="br.com.samuel.treinaiapp.ui.fragments.AddExerciseFragment"
+        android:label="addExercise"
+        tools:layout="@layout/fragment_add_exercise">
+
+    </fragment>
 
 </navigation>
