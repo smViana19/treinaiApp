@@ -8,21 +8,8 @@
     android:background="@drawable/background_primary_gradient"
     tools:context=".ui.fragments.WorkoutDetailsFragment">
 
-    <ImageButton
-        android:id="@+id/imageButtonBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/rounded_button_background"
-        android:padding="16dp"
-        android:src="@drawable/ic_back_left_2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        />
-
     <ImageView
+        android:id="@+id/imgMan_jump_rope"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -32,17 +19,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintDimensionRatio="H,16:9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.019" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/bottomSheetCard"
         android:layout_width="match_parent"
-        android:layout_height="750dp"
+        android:layout_height="700dp"
         android:background="@color/white"
         app:cardCornerRadius="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="parent">
+
+        app:layout_constraintTop_toBottomOf="@+id/imgMan_jump_rope">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -105,6 +95,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/textViewAddExercises"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
