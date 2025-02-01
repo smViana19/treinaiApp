@@ -24,4 +24,5 @@ data class ExerciseModel(
   val name: String? = null,
   @ColumnInfo(name = "workout_id")
   val workoutId: Int = 0,
+
 )

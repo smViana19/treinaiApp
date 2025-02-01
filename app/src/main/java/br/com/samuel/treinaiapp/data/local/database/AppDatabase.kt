@@ -11,7 +11,7 @@ import br.com.samuel.treinaiapp.data.local.database.model.WorkoutModel
 
 @Database(
   entities = [ExerciseModel::class, WorkoutModel::class, ExerciseLogModel::class],
-  version = 3
+  version = 2
 )
 abstract class AppDatabase : RoomDatabase() {
   /**

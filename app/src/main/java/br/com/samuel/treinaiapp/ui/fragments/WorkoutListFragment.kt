@@ -41,9 +41,6 @@ class WorkoutListFragment : Fragment() {
     super.onViewCreated(view, savedInstanceState)
     binding = FragmentWorkoutListBinding.bind(view)
 
-    binding.imageButtonBack.setOnClickListener {
-      findNavController().popBackStack()
-    }
     binding.floatingButtonAddWorkout.setOnClickListener {
       val dialogFragment = WorkoutDialogFragment()
       dialogFragment.show(requireActivity().supportFragmentManager, "WorkoutDialog")

@@ -7,17 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.viewModels
 import br.com.samuel.treinaiapp.R
-import br.com.samuel.treinaiapp.data.local.database.AppDatabase
 import br.com.samuel.treinaiapp.data.repository.WorkoutRepository
 import br.com.samuel.treinaiapp.databinding.FragmentWorkoutDialogBinding
 import br.com.samuel.treinaiapp.ui.adapters.WorkoutAdapter
 import br.com.samuel.treinaiapp.ui.viewmodel.WorkoutViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
