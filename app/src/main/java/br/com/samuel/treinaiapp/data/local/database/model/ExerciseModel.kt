@@ -22,7 +22,10 @@ data class ExerciseModel(
   var id: Int = 0,
   @ColumnInfo(name = "name")
   val name: String? = null,
+  @ColumnInfo(name = "image_url")
+  val imageUrl: String? = null,
+  @ColumnInfo(name = "description")
+  val description: String? = null,
   @ColumnInfo(name = "workout_id")
   val workoutId: Int = 0,
-
 )

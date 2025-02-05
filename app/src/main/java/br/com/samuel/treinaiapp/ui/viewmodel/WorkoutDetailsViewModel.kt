@@ -6,6 +6,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class WorkoutDetailsViewModel @Inject constructor(
-): ViewModel() {
+) : ViewModel() {
 
+
+  //TODO: CHAMAR A FUNCAO PARA PEGAR OS EXERCICIOS DO TREINO
 }

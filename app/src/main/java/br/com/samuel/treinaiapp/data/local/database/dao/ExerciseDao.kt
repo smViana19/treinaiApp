@@ -22,12 +22,10 @@ interface ExerciseDao {
         SELECT 
             exercises.id AS exerciseId,
             exercises.name AS exerciseName,
-            exercise_logs.sets AS sets,
-            exercise_logs.reps AS reps,
-            exercise_logs.weight AS weight,
-            exercise_logs.date AS date
+            exercise_sets.reps AS reps,
+            exercise_sets.weight AS weight
         FROM exercises
-        INNER JOIN exercise_logs ON exercises.id = exercise_logs.exercise_id
+        INNER JOIN exercise_sets ON exercises.id = exercise_sets.exercise_id
         WHERE exercises.workout_id = :workoutId
     """
   )
@@ -38,12 +36,10 @@ interface ExerciseDao {
         SELECT 
             exercises.id AS exerciseId,
             exercises.name AS exerciseName,
-            exercise_logs.sets AS sets,
-            exercise_logs.reps AS reps,
-            exercise_logs.weight AS weight,
-            exercise_logs.date AS date
+            exercise_sets.reps AS reps,
+            exercise_sets.weight AS weight
         FROM exercises
-        INNER JOIN exercise_logs ON exercises.id = exercise_logs.exercise_id
+        INNER JOIN exercise_sets ON exercises.id = exercise_sets.exercise_id
         WHERE exercises.id = :exerciseId
     """
   )
@@ -55,8 +51,6 @@ interface ExerciseDao {
 data class ExerciseWithLogs(
   val exerciseId: Int = 0,
   val exerciseName: String = "",
-  val sets: Int = 0,
   val reps: Int = 0,
   val weight: Double = 0.0,
-  val date: Long = 0L
 )

@@ -1,13 +1,16 @@
 package br.com.samuel.treinaiapp.ui.fragments
 
-import android.app.Fragment
+import androidx.fragment.app.Fragment
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import br.com.samuel.treinaiapp.R
 import br.com.samuel.treinaiapp.databinding.FragmentWorkoutDetailsBinding
 import br.com.samuel.treinaiapp.ui.adapters.ExerciseAdapter
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 
 class WorkoutDetailsFragment : Fragment() {
@@ -29,7 +32,9 @@ class WorkoutDetailsFragment : Fragment() {
     super.onViewCreated(view, savedInstanceState)
     binding = FragmentWorkoutDetailsBinding.bind(view)
     val adapter = ExerciseAdapter(emptyList())
-
+    binding.textViewAddExercises.setOnClickListener {
+      findNavController().navigate(R.id.action_workoutDetailsFragment_to_addExerciseFragment)
+    }
 
 
   }
