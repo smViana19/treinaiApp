@@ -2,11 +2,11 @@ package br.com.samuel.treinaiapp.di
 
 import br.com.samuel.treinaiapp.data.local.converter.Converters
 import br.com.samuel.treinaiapp.data.local.database.dao.ExerciseDao
-import br.com.samuel.treinaiapp.data.local.database.dao.ExerciseLogsDao
+import br.com.samuel.treinaiapp.data.local.database.dao.ExerciseSetDao
 import br.com.samuel.treinaiapp.data.local.database.dao.WorkoutDao
 import br.com.samuel.treinaiapp.data.remote.api.ApiExerciseService
-import br.com.samuel.treinaiapp.data.repository.ExerciseLogsRepository
 import br.com.samuel.treinaiapp.data.repository.ExerciseRepository
+import br.com.samuel.treinaiapp.data.repository.ExerciseSetsRepository
 import br.com.samuel.treinaiapp.data.repository.WorkoutRepository
 import dagger.Module
 import dagger.Provides
@@ -41,10 +41,10 @@ object ApplicationModule {
 
   @Provides
   @Singleton
-  fun provideExerciseLogsRepository(
-    exerciseLogsDao: ExerciseLogsDao
-  ): ExerciseLogsRepository {
-    return ExerciseLogsRepository(exerciseLogsDao)
+  fun provideExerciseSetsRepository(
+    exerciseSetDao: ExerciseSetDao
+  ): ExerciseSetsRepository {
+    return ExerciseSetsRepository(exerciseSetDao)
   }
 
 }
