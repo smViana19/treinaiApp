@@ -1,0 +1,28 @@
+package br.com.samuel.treinaiapp.data.local.database.model
+
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.ForeignKey
+import androidx.room.PrimaryKey
+@Entity(
+  tableName = "exercise_sets",
+  foreignKeys = [
+    ForeignKey(
+      entity = ExerciseModel::class,
+      parentColumns = ["id"],
+      childColumns = ["exercise_id"],
+      onDelete = ForeignKey.CASCADE,
+    )
+  ]
+)
+data class ExerciseSetModel(
+  @PrimaryKey(autoGenerate = true)
+  @ColumnInfo(name = "id")
+  var id: Int = 0,
+  @ColumnInfo(name = "exercise_id")
+  var exerciseId: Int = 0,
+  @ColumnInfo(name = "reps")
+  val reps: Int = 0,
+  @ColumnInfo(name = "weight")
+  val weight: Double = 0.0
+)
