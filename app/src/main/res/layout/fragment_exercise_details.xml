@@ -116,7 +116,7 @@
         android:id="@+id/textViewNumberSets"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+
         android:layout_marginTop="16dp"
         android:text="Números de séries"
         android:textColor="@color/black"
@@ -124,62 +124,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialDivider2" />
 
-    <LinearLayout
-        android:id="@+id/counter"
+    <Button
+        android:id="@+id/buttonAddSet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_incrementer"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:padding="4dp"
-        app:layout_constraintStart_toStartOf="@+id/textViewNumberSets"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNumberSets">
+        android:text="Adicionar Serie"
 
-        <!-- Decrement Button -->
-        <com.google.android.material.button.MaterialButton
-            style="@style/Widget.Material3.Button.OutlinedButton"
-            android:id="@+id/buttonDecrement"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            app:icon="@drawable/ic_minus_24"
-            app:iconGravity="textStart"
-            app:iconPadding="0dp"
-            app:strokeWidth="0dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/textViewNumberSets"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewNumberSets"
+        app:layout_constraintTop_toTopOf="@+id/textViewNumberSets" />
 
-        <!-- Display Current Number -->
-        <TextView
-            android:id="@+id/numberTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingHorizontal="16dp"
-            android:text="0"
-            android:textColor="@color/gray_1"
-            android:textSize="20sp" />
 
-        <!-- Increment Button -->
-        <com.google.android.material.button.MaterialButton
-            style="@style/Widget.Material3.Button.OutlinedButton"
-            android:id="@+id/buttonIncrement"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="8dp"
-            app:icon="@drawable/ic_add_24"
-            app:iconGravity="textStart"
-            app:iconPadding="0dp"
-            app:strokeWidth="0dp" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textViewSets"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewSets"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        android:text="Séries"
-        android:textColor="@color/black"
-        android:textSize="16sp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSaveExerciseDetails"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/counter" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewNumberSets" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonSaveExerciseDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/primary_gradient_start"
+        android:text="Salvar"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
