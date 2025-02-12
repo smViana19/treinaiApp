@@ -23,9 +23,6 @@ class WorkoutDialogFragment : DialogFragment() {
   @Inject
   lateinit var workoutViewModel: WorkoutViewModel
   lateinit var binding: FragmentWorkoutDialogBinding
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-  }
 
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,

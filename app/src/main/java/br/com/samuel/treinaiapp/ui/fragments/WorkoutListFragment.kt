@@ -25,10 +25,6 @@ class WorkoutListFragment : Fragment() {
 
   @Inject
   lateinit var workoutViewModel: WorkoutViewModel
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-
-  }
 
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,

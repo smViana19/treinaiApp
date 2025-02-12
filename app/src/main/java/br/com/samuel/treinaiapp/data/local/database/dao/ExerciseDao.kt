@@ -19,6 +19,13 @@ interface ExerciseDao {
 
   @Query(
     """
+      SELECT * FROM exercises WHERE workout_id = :workoutId
+    """
+  )
+  suspend fun getAllExercisesByWorkoutId(workoutId: Int): List<ExerciseModel>
+
+  @Query(
+    """
         SELECT 
             exercises.id AS exerciseId,
             exercises.name AS exerciseName,
@@ -29,7 +36,7 @@ interface ExerciseDao {
         WHERE exercises.workout_id = :workoutId
     """
   )
-  suspend fun getAllExercisesAndLogs(workoutId: Int): List<ExerciseWithLogs>
+  suspend fun getAllExercisesAndSets(workoutId: Int): List<ExerciseWithLogs>
 
   @Query(
     """
@@ -43,7 +50,7 @@ interface ExerciseDao {
         WHERE exercises.id = :exerciseId
     """
   )
-  suspend fun getExerciseAndLogsById(exerciseId: Int): List<ExerciseWithLogs>
+  suspend fun getExerciseAndSetsById(exerciseId: Int): List<ExerciseWithLogs>
 
 
 }

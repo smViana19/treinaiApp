@@ -14,27 +14,27 @@ class ExerciseRepository @Inject constructor(
   private val exerciseDao: ExerciseDao,
   private val converters: Converters
 ) {
-  suspend fun getExercisesFromApi(limit: Int, offset: Int): List<ExerciseModel> {
-    val response = apiExerciseService.getExercises(limit = limit, offset = offset)
-    val exercises = response.results.map { converters.fromApiToStorage(it) }
-    exerciseDao.bulkInsertExercises(exercises)
-    return exercises
+
+  suspend fun getExercises(): List<ExerciseModel> {
+    return exerciseDao.getAllExercises()
   }
 
-  suspend fun getExercisesFromDatabase(): List<ExerciseModel> {
-    return exerciseDao.getAllExercises()
+  suspend fun getAllExercisesByWorkoutId(workoutId: Int): List<ExerciseModel> {
+    return exerciseDao.getAllExercisesByWorkoutId(workoutId)
   }
 
   suspend fun insertExercise(exercise: ExerciseModel): Long {
     return exerciseDao.insertExercise(exercise)
   }
 
+
   suspend fun getAllExercisesAndLogs(workoutId: Int): List<ExerciseWithLogs> {
-    return exerciseDao.getAllExercisesAndLogs(workoutId)
+    return exerciseDao.getAllExercisesAndSets(workoutId)
   }
 
   suspend fun getExerciseAndLogsById(exerciseId: Int): List<ExerciseWithLogs> {
-    return exerciseDao.getExerciseAndLogsById(exerciseId)
+    return exerciseDao.getExerciseAndSetsById(exerciseId)
   }
+
 
 }

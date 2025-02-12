@@ -1,5 +1,6 @@
 package br.com.samuel.treinaiapp.ui.adapters
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,7 +38,13 @@ class WorkoutAdapter(private var workoutData: List<WorkoutModel>) :
       println("HOLDER ID: ${holder.card.id}")
       println("ITEM ID: ${item.id}")
       val navController = it.findNavController()
-      navController.navigate(R.id.action_workoutListFragment_to_workoutDetailsFragment)
+      val bundle = Bundle().apply {
+        putInt("workoutId", item.id)
+      }
+      navController.navigate(
+        resId = R.id.action_workoutListFragment_to_workoutDetailsFragment,
+        args = bundle
+      )
     }
   }
 
