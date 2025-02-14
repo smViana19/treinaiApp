@@ -35,8 +35,6 @@ class WorkoutAdapter(private var workoutData: List<WorkoutModel>) :
     holder.card.id = item.id
 
     holder.card.setOnClickListener {
-      println("HOLDER ID: ${holder.card.id}")
-      println("ITEM ID: ${item.id}")
       val navController = it.findNavController()
       val bundle = Bundle().apply {
         putInt("workoutId", item.id)
@@ -56,7 +54,7 @@ class WorkoutAdapter(private var workoutData: List<WorkoutModel>) :
   }
 
   fun addItem(newWorkout: WorkoutModel) {
-    workoutData = workoutData + newWorkout // Adiciona o item na lista
-    notifyItemInserted(workoutData.size - 1) // Notifica que um novo item foi inserido
+    workoutData = workoutData + newWorkout
+    notifyItemInserted(workoutData.size - 1)
   }
 }
