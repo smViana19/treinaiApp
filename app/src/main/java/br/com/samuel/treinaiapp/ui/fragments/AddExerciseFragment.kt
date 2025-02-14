@@ -87,6 +87,7 @@ class AddExerciseFragment : Fragment() {
     if (name.isNotEmpty()) {
       addExerciseViewModel.insertExercise(exercise)
       Toast.makeText(context, "Exercicio salvo com sucesso", Toast.LENGTH_SHORT).show()
+      findNavController().navigateUp()
     } else {
       Toast.makeText(context, "Preencha o nome do exercicio", Toast.LENGTH_SHORT).show()
     }
