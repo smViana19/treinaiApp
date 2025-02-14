@@ -39,9 +39,16 @@
             android:name="workoutId"
             android:defaultValue="0"
             app:argType="integer" />
+        <argument
+            android:name="exerciseId"
+            android:defaultValue="0"
+            app:argType="integer" />
         <action
             android:id="@+id/action_workoutDetailsFragment_to_addExerciseFragment"
             app:destination="@+id/addExerciseFragment" />
+        <action
+            android:id="@+id/action_workoutDetailsFragment_to_exerciseDetailsFragment"
+            app:destination="@id/exerciseDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/addExerciseFragment"
@@ -52,6 +59,12 @@
             android:name="workoutId"
             android:defaultValue="0"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/exerciseDetailsFragment"
+        android:name="br.com.samuel.treinaiapp.ui.fragments.ExerciseDetailsFragment"
+        tools:layout="@layout/fragment_exercise_details">
+
     </fragment>
 
 </navigation>
