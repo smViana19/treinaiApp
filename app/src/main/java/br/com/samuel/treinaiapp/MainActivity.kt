@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
   private fun getRootDestinations(): Set<Int> {
     return setOf(
       R.id.homeFragment,
-    ) //TODO: ADD MAIS TELAS QUE NAO VAO TER A TOPBAR
+    )
   }
 
 }
