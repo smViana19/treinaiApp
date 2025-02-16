@@ -69,6 +69,7 @@ dependencies {
   implementation(libs.androidx.lifecycle.livedata.ktx)
   implementation(libs.androidx.lifecycle.viewmodel.ktx)
   testImplementation(libs.junit)
+  testImplementation (libs.mockk.android)
   androidTestImplementation(libs.androidx.junit)
   androidTestImplementation(libs.androidx.espresso.core)
 }

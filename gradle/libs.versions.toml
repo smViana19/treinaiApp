@@ -12,6 +12,7 @@ constraintlayout = "2.2.0"
 annotation = "1.9.1"
 hiltCommon = "1.2.0"
 hiltAndroid = "2.50"
+mockkAndroid = "1.13.16"
 navigationFragmentKtx = "2.8.5"
 retrofit = "2.11.0"
 roomRuntime = "2.6.1"
@@ -39,6 +40,7 @@ androidx-hilt-common = { group = "androidx.hilt", name = "hilt-common", version.
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "roomRuntime" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroid" }
+mockk-android = { module = "io.mockk:mockk-android", version.ref = "mockkAndroid" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-gson-convertor = { module = "com.squareup.retrofit2:converter-gson", version = "2.9.0" }
 
