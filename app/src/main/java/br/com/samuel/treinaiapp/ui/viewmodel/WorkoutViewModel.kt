@@ -16,26 +16,22 @@ class WorkoutViewModel @Inject constructor(
   private val _workouts = MutableLiveData<List<WorkoutModel>>()
   val workouts: LiveData<List<WorkoutModel>> = _workouts
 
-  fun getWorkouts() {
+  fun getAllWorkouts() {
     viewModelScope.launch {
-      val workoutsData = workoutRepository.getWorkoutsFromLocalDatabase()
+      val workoutsData = workoutRepository.getAllWorkouts()
       _workouts.postValue(workoutsData)
-//      _workouts.value = workoutsData
-//      println("workouts: $workoutsData")
     }
   }
 
-  fun insertWorkoutsToLocalDatabase(name: String, description: String?) {
+  fun insertWorkouts(name: String, description: String?) {
     viewModelScope.launch {
       try {
-        workoutRepository.insertWorkoutsToLocalDatabase(name, description)
-        getWorkouts()
-        println("CHEGOU AQ")
+        workoutRepository.insertWorkouts(name, description)
+        getAllWorkouts()
       } catch (e: Exception) {
         e.printStackTrace()
       }
     }
-
   }
 
 }

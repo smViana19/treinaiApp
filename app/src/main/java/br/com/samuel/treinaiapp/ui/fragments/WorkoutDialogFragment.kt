@@ -39,7 +39,7 @@ class WorkoutDialogFragment : DialogFragment() {
     builder.setPositiveButton("Salvar") { _, _ ->
       val name = binding.editTextNameWorkout.text.toString()
       val description = binding.editTextDescription.text.toString()
-      workoutViewModel.insertWorkoutsToLocalDatabase(name, description)
+      workoutViewModel.insertWorkouts(name, description)
       parentFragmentManager.setFragmentResult("workoutAdded", Bundle())
       dismiss()
     }

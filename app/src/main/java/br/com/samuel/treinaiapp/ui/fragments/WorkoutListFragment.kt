@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.samuel.treinaiapp.R
 import br.com.samuel.treinaiapp.data.repository.WorkoutRepository
@@ -46,7 +45,7 @@ class WorkoutListFragment : Fragment() {
     workoutViewModel.workouts.observe(viewLifecycleOwner) { workouts ->
       adapter.updateItems(workouts)
     }
-    workoutViewModel.getWorkouts()
+    workoutViewModel.getAllWorkouts()
     binding.recyclerViewListWorkouts.adapter = adapter
   }
 }

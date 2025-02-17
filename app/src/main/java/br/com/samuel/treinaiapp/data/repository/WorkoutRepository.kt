@@ -10,11 +10,11 @@ import javax.inject.Singleton
 class WorkoutRepository @Inject constructor(
   private val workoutDao: WorkoutDao
 ) {
-  suspend fun getWorkoutsFromLocalDatabase(): List<WorkoutModel> {
+  suspend fun getAllWorkouts(): List<WorkoutModel> {
     val workouts = workoutDao.getAllWorkouts()
     return workouts
   }
-  suspend fun insertWorkoutsToLocalDatabase(name: String, description: String?) {
+  suspend fun insertWorkouts(name: String, description: String?) {
     val workout = WorkoutModel(name = name, description = description)
     workoutDao.insertWorkout(workout)
   }
