@@ -4,16 +4,18 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.RecyclerView
 import br.com.samuel.treinaiapp.data.local.database.model.ExerciseSetModel
 import br.com.samuel.treinaiapp.databinding.CardExerciseDetailBinding
 
 class ExerciseDetailsAdapter : RecyclerView.Adapter<ExerciseDetailsAdapter.ViewHolder>() {
-  private val sets = mutableListOf<ExerciseSetModel>()
+  private var sets = mutableListOf<ExerciseSetModel>()
 
   inner class ViewHolder(val binding: CardExerciseDetailBinding) :
-    RecyclerView.ViewHolder(binding.root)
+    RecyclerView.ViewHolder(binding.root) {
+    var weightWatcher: TextWatcher? = null
+    var repsWatcher: TextWatcher? = null
+  }
 
   override fun onCreateViewHolder(
     parent: ViewGroup,
@@ -26,34 +28,41 @@ class ExerciseDetailsAdapter : RecyclerView.Adapter<ExerciseDetailsAdapter.ViewH
 
   override fun onBindViewHolder(holder: ExerciseDetailsAdapter.ViewHolder, position: Int) {
     val set = sets[position]
+
+    val adapterPosition = holder.adapterPosition
+    holder.binding.etReps.removeTextChangedListener(holder.repsWatcher)
+    holder.binding.etWeight.removeTextChangedListener(holder.weightWatcher)
+
     holder.binding.etReps.setText(set.reps.toString())
     holder.binding.etWeight.setText(set.weight.toString())
 
-    holder.binding.etReps.addTextChangedListener(object : TextWatcher {
-      override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-
-      override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
+    val repsWatcher = object : TextWatcher {
+      override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+      override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+      override fun afterTextChanged(s: Editable?) {
+        val newReps = s.toString().toIntOrNull() ?: 0
+        if (sets[adapterPosition].reps != newReps) {
+          sets[adapterPosition].reps = newReps
+        }
       }
+    }
 
-      override fun afterTextChanged(p0: Editable?) {
-        set.reps = p0.toString().toIntOrNull() ?: 0
+    val weightWatcher = object : TextWatcher {
+      override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+      override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+      override fun afterTextChanged(s: Editable?) {
+        val newWeight = s.toString().toDoubleOrNull() ?: 0.0
+        if (sets[adapterPosition].weight != newWeight) {
+          sets[adapterPosition].weight = newWeight
+        }
       }
+    }
 
-    })
+    holder.repsWatcher = repsWatcher
+    holder.weightWatcher = weightWatcher
 
-    holder.binding.etWeight.addTextChangedListener(object : TextWatcher {
-      override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-      }
-
-      override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-      }
-
-      override fun afterTextChanged(p0: Editable?) {
-        set.weight = p0.toString().toDoubleOrNull() ?: 0.0
-      }
-    })
-
+    holder.binding.etReps.addTextChangedListener(repsWatcher)
+    holder.binding.etWeight.addTextChangedListener(weightWatcher)
   }
 
   override fun getItemCount(): Int {
@@ -65,8 +74,12 @@ class ExerciseDetailsAdapter : RecyclerView.Adapter<ExerciseDetailsAdapter.ViewH
     notifyItemInserted(sets.size - 1)
   }
 
-  fun getSets(): List<ExerciseSetModel> {
-    return sets
+  fun getSets(): List<ExerciseSetModel> = sets
+
+  fun updateSets(newSets: List<ExerciseSetModel>) {
+    sets.clear()
+    sets.addAll(newSets)
+    notifyDataSetChanged()
   }
 
   fun removeSets() {}

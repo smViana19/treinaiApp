@@ -31,19 +31,26 @@ class ExerciseDetailsFragment : Fragment() {
     super.onViewCreated(view, savedInstanceState)
     val exerciseId = arguments?.getInt("exerciseId", 0) ?: 0
     val adapter = ExerciseDetailsAdapter()
+    exerciseDetailsViewmodel.setExerciseId(exerciseId)
+
     binding = FragmentExerciseDetailsBinding.bind(view)
-
-
     binding.recyclerViewSets.layoutManager = LinearLayoutManager(context)
+
     binding.recyclerViewSets.adapter = adapter
+
     binding.buttonAddSet.setOnClickListener {
-      adapter.addSet(ExerciseSetModel(exerciseId = exerciseId))
+      val newSet = ExerciseSetModel(exerciseId = exerciseId, id = 0)
+      adapter.addSet(newSet)
     }
 
-    val exerciseSets = adapter.getSets()
     binding.buttonSaveExerciseDetails.setOnClickListener {
-      exerciseDetailsViewmodel.bulkInsertExerciseSets(exerciseSets)
-      println("criou")
+      val updatedSets = adapter.getSets()
+      exerciseDetailsViewmodel.saveExerciseSets(updatedSets)
     }
+
+    exerciseDetailsViewmodel.exerciseSets.observe(viewLifecycleOwner) { sets ->
+      adapter.updateSets(sets)
+    }
+    exerciseDetailsViewmodel.loadExerciseSets()
   }
 }

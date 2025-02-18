@@ -20,14 +20,11 @@ class WorkoutDetailsViewModel @Inject constructor(
   fun getAllExercisesByWorkoutId(workoutId: Int) {
     viewModelScope.launch {
       try {
-        //PROVISIORIO ATE EU COLOCAR A PROXIMA TELA CORRETAMENTE
         val exercises = repository.getAllExercisesByWorkoutId(workoutId)
         _exercises.postValue(exercises)
-        println("exercises $_exercises e $exercises")
       } catch (e: Exception) {
         e.printStackTrace()
       }
     }
   }
-  //TODO: CHAMAR A FUNCAO PARA PEGAR OS EXERCICIOS DO TREINO
 }
