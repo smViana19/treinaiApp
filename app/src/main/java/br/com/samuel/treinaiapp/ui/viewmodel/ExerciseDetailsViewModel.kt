@@ -18,14 +18,14 @@ class ExerciseDetailsViewModel @Inject constructor(
   val exerciseSets: LiveData<List<ExerciseSetModel>> = _exerciseSets
 
   private var _exerciseId = 0
-
+  
   fun setExerciseId(exerciseId: Int) {
     _exerciseId = exerciseId
   }
 
-  fun loadExerciseSets() {
+  fun loadExerciseSets(exerciseId: Int) {
     viewModelScope.launch {
-      val sets = repository.getSetsByExerciseId(_exerciseId)
+      val sets = repository.getSetsByExerciseId(exerciseId)
       _exerciseSets.value = sets
     }
   }
@@ -40,7 +40,6 @@ class ExerciseDetailsViewModel @Inject constructor(
             repository.updateExerciseSet(set)
           }
         }
-        loadExerciseSets()
       } catch (e: Exception) {
         e.printStackTrace()
       }

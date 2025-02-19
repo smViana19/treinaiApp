@@ -51,6 +51,6 @@ class ExerciseDetailsFragment : Fragment() {
     exerciseDetailsViewmodel.exerciseSets.observe(viewLifecycleOwner) { sets ->
       adapter.updateSets(sets)
     }
-    exerciseDetailsViewmodel.loadExerciseSets()
+    exerciseDetailsViewmodel.loadExerciseSets(exerciseId)
   }
 }
